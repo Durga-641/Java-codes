@@ -1,18 +1,13 @@
 package com.model;
 
-public class Employee {
+public class Employee extends BaseEntity{
 	
-	private int id;
+
 	private String name;
 	private String city;
 	private String department;
 	private double salary;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	public String getName() {
 		return name;
 	}
