@@ -23,6 +23,7 @@ public class EmployeeController {
 			System.out.println("5.Sort Employee as per Salary: ASC comparable");
 			System.out.println("6.Sort Employee as per Salary: DESC compartor");
 			System.out.println("7.Sort Employee as per Salary: stream");
+			System.out.println("8.delete Employee using stream");
 			System.out.println("0.Exit");
 			int input = sc.nextInt();
 			if(input ==0) {
@@ -89,6 +90,18 @@ public class EmployeeController {
 			case 7:
 				list = employeeService.getEmployeeInSortedOrderOfSalaryUsingStream(list);
 				list.stream().forEach(System.out::println);
+				break;
+			case 8:
+				id = sc.nextLong();
+				try {
+					list = employeeService.deleteOne(list,id);
+					list.stream().forEach(System.out::println);
+				} catch (ResourceNotFoundexception e1) {
+					// TODO Auto-generated catch block
+					System.out.println(e1.getMessage());
+				}
+					
+				
 				break;
 			default:
 				System.out.println("Enter valid  option.. Try Again ");

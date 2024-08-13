@@ -56,8 +56,18 @@ public interface EmployeeRepository extends BaseRepository{
 		 return emp;	
 	}
 	
-	public default void deleteOne(List<Employee> list, long id) {
-		//delte the obj from the list that matchs id
-		
+	public default List<Employee> deleteOne(List<Employee> list, long id) throws ResourceNotFoundexception {
+	    List<Employee> updatedList = list.stream()
+	        .filter(e -> e.getId() != id)
+	        .collect(Collectors.toList());
+
+	    if (updatedList.size() == list.size()) {
+	        throw new ResourceNotFoundexception("Invalid ID");
+	    }
+
+	    list.clear();
+	    list.addAll(updatedList);
+	    return list;
 	}
+
 }

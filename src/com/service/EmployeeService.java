@@ -11,11 +11,13 @@ import com.utility.SortUtility;
 public class EmployeeService implements EmployeeRepository {
 	
 	public List<Employee> getEmployeesinsortedOrder(List<Employee> list, String direction) {
-		//check if direction is ASC or Desc
-		//sort the list of employee on the bases of salary
-		Collections.sort(list);
-		return list;
-	}
+		  if (direction.equalsIgnoreCase("ASC")) {
+	            Collections.sort(list);
+	        } else if (direction.equalsIgnoreCase("DESC")) {
+	            Collections.sort(list, Collections.reverseOrder());
+	        }
+	        return list;
+	    }
 	
 	public List<Employee> getEmployeeInSortedOrderOfSalaryComparator(List<Employee> list, String direction){
 		if(direction.equals("ASC")) {
