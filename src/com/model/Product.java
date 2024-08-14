@@ -1,6 +1,6 @@
 package com.model;
 
-public class Product {
+public class Product implements Comparable<Product> {
 	
 	private int id;
 	private String title;
@@ -29,6 +29,15 @@ public class Product {
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", title=" + title + ", description=" + description + ", price=" + price + "]";
+	}
+	@Override
+	public int compareTo(Product p2) {
+		// TODO Auto-generated method stub
+		return (int)(this.price-p2.price);
 	}
 	
 	
