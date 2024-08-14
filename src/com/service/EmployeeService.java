@@ -1,7 +1,9 @@
 package com.service;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;import java.util.concurrent.CountDownLatch;
 import java.util.stream.Collectors;
 
 import com.model.Employee;
@@ -34,6 +36,22 @@ public class EmployeeService implements EmployeeRepository {
 		.sorted((e1,e2)-> e2.getSalary().compareTo(e1.getSalary()))
 		.collect(Collectors.toList());
 		return list;
+	}
+
+	public Map<String,Long> getEmployeeStateByDepartment(List<Employee> list) {
+		// TODO Auto-generated method stub
+		Map<String,Long> map = new HashMap();
+		List<String> listDept = list.stream()
+		.map(e-> e.getDepartment()).distinct()
+		.collect(Collectors.toList());
+		//System.out.println(listDept);
+		
+		listDept.stream().forEach(d->{
+		long count=	list.stream().filter(e->e.getDepartment().equals(d))
+			.count();
+		map.put(d, count);
+		});
+		return map;
 	}
 	
 	

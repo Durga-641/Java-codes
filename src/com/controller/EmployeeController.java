@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import com.Exception.ResourceNotFoundexception;
@@ -24,6 +25,7 @@ public class EmployeeController {
 			System.out.println("6.Sort Employee as per Salary: DESC compartor");
 			System.out.println("7.Sort Employee as per Salary: stream");
 			System.out.println("8.delete Employee using stream");
+			System.out.println("9.show employees states department wise");
 			System.out.println("0.Exit");
 			int input = sc.nextInt();
 			if(input ==0) {
@@ -32,7 +34,6 @@ public class EmployeeController {
 			}
 			switch(input) {
 			case 1:
-				
 				System.out.println("------------ALL Employess------");
 				list.stream().forEach(System.out::println);
 				break;
@@ -103,6 +104,10 @@ public class EmployeeController {
 					
 				
 				break;
+			case 9:
+				Map<String,Long> map = employeeService.getEmployeeStateByDepartment( list);
+				System.out.println(map);
+				 break;
 			default:
 				System.out.println("Enter valid  option.. Try Again ");
 				break;

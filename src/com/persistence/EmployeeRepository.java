@@ -13,7 +13,7 @@ public interface EmployeeRepository extends BaseRepository{
 		Employee e1 = new Employee(1L, "pavani", "vizag", "IT", 40000);
 		Employee e2 = new Employee(2L, "durga", "hyd", "Admin", 45000);
 		Employee e3 = new Employee(3L, "dogga", "vzw", "Telecom", 50000);
-		Employee e4 = new Employee(4L, "lucky", "UK", "Tech", 55000);
+		Employee e4 = new Employee(4L, "lucky", "UK", "IT", 55000);
 		Employee e5 = new Employee(5L, "vasu", "Usa", "AI", 60000);
 		
 		List<Employee> list = new ArrayList<>();
